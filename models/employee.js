@@ -37,6 +37,10 @@ var EmployeeSchema=new mongoose.Schema({
         type: String
 
 
+    },
+    flag:{
+        type:Boolean,
+        default:true
     }
 
 

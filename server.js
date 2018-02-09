@@ -12,13 +12,13 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use((req,res,next) =>{
 
-    res.header('Access-Control-Allow-Origin',' http://localhost:3001');
+    res.header('Access-Control-Allow-Origin',' http://localhost:3000');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     next();
 });
 app.get('/list',(req,res)=>{
-    employee.find().then((data)=>{
+    employee.find({flag:true}).then((data)=>{
         if(!data){
             console.log(`Data Not found`);
         }
@@ -66,7 +66,7 @@ app.post('/add',(req,res)=>{
 app.post('/delete',(req,res)=>{
     let id=req.body.id;
     console.log(id);
-    employee.findByIdAndRemove(id).then((emp)=>{
+    employee.findByIdAndUpdate(id,{$set:{flag:false}}).then((emp)=>{
         if (!emp) {
             res.status(404).send();
         }
