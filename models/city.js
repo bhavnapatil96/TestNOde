@@ -16,3 +16,5 @@ var CitySchema=new mongoose.Schema({
 let city=mongoose.model('city',CitySchema);
 
 module.exports={city};
+
+//.....................
