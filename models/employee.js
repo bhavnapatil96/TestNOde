@@ -38,6 +38,9 @@ var EmployeeSchema=new mongoose.Schema({
 
 
     },
+    photo:{
+        type:String
+    },
     flag:{
         type:Boolean,
         default:true
